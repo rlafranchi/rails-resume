@@ -1,0 +1,13 @@
+<%= render 'shared/title', title: "Resume Builder" %>
+<div class="row">
+  <div class="medium-6 columns">
+    <h3>Recent Resumes</h3>
+    <ul>
+      <%= render @resumes[0..4] %>
+    </ul>
+  </div>
+  <div class="medium-6 columns panel">
+    <h3>Create a Resume</h3>
+    <%= render 'form' %>
+  </div>
+</div>

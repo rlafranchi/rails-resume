@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Rails Resume" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -13,7 +13,18 @@
 
   <body>
 
-    <%= yield %>
+    <header>
+    </header>
+
+    <main class="row">
+     <div class="medium-12 columns">
+       <%= yield %>
+     </div>
+    </main>
+
+    <footer>
+    </footer>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>

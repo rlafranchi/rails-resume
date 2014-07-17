@@ -1,0 +1,8 @@
+<%= render 'shared/navigation' %>
+<%= render 'shared/title', title: "#{@resume.user.first_name} #{@resume.user.last_name}" %>
+<div class="row">
+  <div class="medium-6 columns medium-offset-by-2">
+    <h3>Objective</h3>
+    <p><%= @objective.description %></p>
+  </div>
+</div>

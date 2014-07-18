@@ -10,6 +10,17 @@ class ResumesController < ApplicationController
     @objective = @resume.objective
   end
 
+  def edit
+    @resume = Resume.find(params[:id])
+    @skills = @resume.skills
+    @schools = @resume.schools
+    @jobs = @resume.experiences
+    # @projects = @jobs.projects
+    @hobbies = @resume.hobbies
+    @references = @resume.references
+    @customs = @resume.customs
+  end
+
   def create
     @resume = Resume.new
     @resume.save

@@ -1,22 +1,62 @@
 <%= render 'shared/title', title: "Build your Resume" %>
+<a href="<%= resume_path(@resume) %>" data-reveal-id="myModal" data-reveal-ajax="true">
+    Click Me For A Modal
+</a>
+<div class="row">
+  <div class="medium-12 columns">
+    <%= render 'layouts/messages' %>
+    <h1>Objective</h1>
+
+    <% if @resume.objective %>
+      <p><%= @resume.objective.description %></p>
+      <%= link_to "Edit Objective", edit_resume_objective_path({resume_id: @resume.id, id: @resume.objective.id}), class: 'button small radius' %>
+    <% else %>
+      <%= render 'objectives/form' %>
+    <% end %>
+
+  </div>
+</div>
 
 <div class="row">
   <div class="medium-4 columns">
     <div class="panel">
       <h3>Skills</h3>
-      <%= link_to "Add Skill", new_resume_skill_path(@resume), class: 'button secondary' %>
+      <ul class="no-bullet">
+        <% @skills.each do |skill| %>
+          <li><strong><%= skill.title %></strong> -
+            <small><%= link_to "edit", edit_resume_skill_path(@resume,skill) %></small>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add Skill", new_resume_skill_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
       <h3>Education</h3>
-      <%= link_to "Add School", new_resume_school_path(@resume), class: 'button secondary' %>
+      <ul class="no-bullet">
+      <% @schools.each do |school| %>
+        <li>
+          <strong><%= school.name %> -
+          <%= link_to "<i class=\"step fi-pencil size-24\"></i>".html_safe, edit_resume_school_path(@resume,school), title: "Edit" %></small>
+        </li>
+      <% end %>
+      </ul>
+      <%= link_to "Add School", new_resume_school_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
       <h3>Work Experience</h3>
-      <%= link_to "Add Job", new_resume_experience_path(@resume), class: 'button secondary' %>
+      <ul class="no-bullet">
+      <% @jobs.each do |job| %>
+        <li>
+          <strong><%= job.job_title %> -
+          <small><%= link_to "Edit", edit_resume_experience_path(@resume,job) %></small>
+        </li>
+      <% end %>
+      </ul>
+      <%= link_to "Add Job", new_resume_experience_path(@resume), class: 'button small radius' %>
     </div>
   </div>
 </div>
@@ -24,19 +64,19 @@
   <div class="medium-4 columns">
     <div class="panel">
       <h3>Hobbies</h3>
-      <%= link_to "Add Hobby", new_resume_hobby_path(@resume), class: 'button secondary' %>
+      <%= link_to "Add Hobby", new_resume_hobby_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
       <h3>References</h3>
-      <%= link_to "Add Reference", new_resume_reference_path(@resume), class: 'button secondary' %>
+      <%= link_to "Add Reference", new_resume_reference_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
       <h3>Custom</h3>
-      <%= link_to "Add Custom", new_resume_custom_path(@resume), class: 'button secondary' %>
+      <%= link_to "Add Custom", new_resume_custom_path(@resume), class: 'button small radius' %>
     </div>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<%= render 'shared/errors', obj: @school %>
+
+<%= form_for [@resume, @school] do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@school) %></legend>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :degree %>
+    <%= f.text_field :degree %>
+    <%= f.label :year_graduated %>
+    <%= f.text_field :year_graduated %>
+    <%= f.submit create_or_update(@school), class: 'button small radius' %>
+  </fieldset>
+<% end %>

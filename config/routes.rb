@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'resumes#index'
-  resources :resumes, except: [:new, :update] do
-    resources :objectives
-    resources :skills
+  resources :resumes, except: [:new, :update, :destroy] do
+    resources :objectives, only: [:create, :update, :edit]
+    resources :skills, except: [:index]
     resources :schools
     resources :experiences do
       resources :projects

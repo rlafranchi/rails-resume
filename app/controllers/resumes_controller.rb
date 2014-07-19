@@ -12,6 +12,8 @@ class ResumesController < ApplicationController
 
   def edit
     @resume = Resume.find(params[:id])
+    @objective = Objective.new
+
     @skills = @resume.skills
     @schools = @resume.schools
     @jobs = @resume.experiences
@@ -23,6 +25,7 @@ class ResumesController < ApplicationController
 
   def create
     @resume = Resume.new
+    @resume.user_id = User.first.id
     @resume.save
     redirect_to resume_path(@resume)
   end

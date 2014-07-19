@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @job %>
+<div class="row">
+  <div class="medium-4 columns">
+      <%= form_for [@resume, @job] do |f| %>
+        <fieldset>
+        <legend><%= create_or_update(@job) %></legend>
+            <%= f.label :job_title %>
+            <%= f.text_field :job_title %>
+            <%= f.label :company %>
+            <%= f.text_field :company %>
+            <%= f.label :city %>
+            <%= f.text_field :city %>
+            <%= f.label :state %>
+            <%= f.text_field :state %>
+            <%= f.submit create_or_update(@job), class: 'button small radius' %>
+        </fieldset>
+      <% end %>
+  </div>
+  <div class="medium-8 columns">
+
+    <% unless @job.new_record? || @project.nil? %>
+      <h3>Projects</h3>
+      <%= render @job.projects %>
+      <%= render 'projects/form' %>
+    <% end %>
+  </div>
+</div>

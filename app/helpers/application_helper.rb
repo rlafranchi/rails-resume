@@ -10,4 +10,8 @@ module ApplicationHelper
       "Objective"
     end
   end
+
+  def create_or_update(obj)
+    obj.new_record? ? "Create #{obj.class.name}" : "Update #{obj.class.name}"
+  end
 end

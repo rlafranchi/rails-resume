@@ -8,21 +8,21 @@ class ResumesController < ApplicationController
   def show
     @resume = Resume.find(params[:id])
     @objective = @resume.objective
+    @skills = @resume.skills
+    @schools = @resume.schools
+    @jobs = @resume.experiences
+    @hobbies = @resume.hobbies
+    @references = @resume.references
+    @customs = @resume.customs
   end
 
   def edit
     @resume = Resume.find(params[:id])
     @objective = Objective.new
-
     @skills = @resume.skills
-    @new_skill = Skill.new
     @schools = @resume.schools
-    @new_school = School.new
     @jobs = @resume.experiences
-    @new_job = Experience.new
-    # @projects = @jobs.projects
     @hobbies = @resume.hobbies
-
     @references = @resume.references
     @customs = @resume.customs
   end

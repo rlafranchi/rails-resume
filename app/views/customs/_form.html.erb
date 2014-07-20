@@ -1,0 +1,12 @@
+<%= render 'shared/errors', obj: @custom %>
+
+<%= form_for [@resume, @custom] do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@custom) %></legend>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.submit create_or_update(@custom), class: 'button small radius' %>
+  </fieldset>
+<% end %>

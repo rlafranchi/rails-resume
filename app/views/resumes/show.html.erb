@@ -1,8 +1,72 @@
 <%= render 'shared/navigation' %>
 <%= render 'shared/title', title: "#{@resume.user.first_name} #{@resume.user.last_name}" %>
 <div class="row">
-  <div class="medium-6 columns">
-    <h3>Objective</h3>
-    <p><%= @objective.description %></p>
+  <div class="medium-8 columns medium-centered">
+    
+    <section id="objective">
+      <h2>Objective</h2>
+      <hr />
+      <p><%= @objective.description %></p>
+    </section>
+    
+    <section id="skills">
+      <h2>Skills</h2>
+      <hr />
+      <% @skills.each do |skill| %>
+        <p><strong><%= skill.title %> - </strong><%= skill.description %></p>
+      <% end %>
+    </section>
+    
+    <section id="education">
+      <h2>Education</h2>
+      <hr />
+      <% @schools.each do |school| %>
+        <h3><%= school.name %> <small><%= school.degree %>Graduated <%= school.year_graduated %></small></h3>
+      <% end %>
+    </section>
+    
+    <section id="work">
+      <h2>Work Experience</h2>
+      <hr />
+      <% @jobs.each do |job| %>
+        <h3><%= job.job_title %> <small><%= job.company %>, <%= job.city %>, <%= job.state %> <span class='right'><%= job.phone %></span></small></h3>
+        <% job.projects.each do |project| %>
+          <p><strong><%= project.name %></strong> - <%= project.description %></p>
+        <% end %>
+      <% end %>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <hr />
+      <% @hobbies.each do |hobby| %>
+        <p><strong><%= hobby.title %></strong> - <%= hobby.description %></p>
+      <% end %>
+    </section>
+    
+    <section id="references">
+      <h2>References</h2>
+      <hr />
+      <% @references.each do |reference| %>
+        <p>
+        <strong><%= reference.name %></strong> - <%= reference.relationship %><br/>
+        <%= reference.company %><br />
+        <%= reference.phone %><br />
+        <%= reference.email %>
+        </p>
+      <% end %>
+      
+    </section>
+    
+    <% @customs.each do |custom| %>
+      <section id="custom-<%= custom.id %>">
+        <h2><%= custom.title %></h2>
+        <hr />
+        <p>
+          <%= custom.description.html_safe %>
+        </p>
+
+      </section>
+    <% end %>
   </div>
 </div>

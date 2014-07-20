@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: @reference %>
+
+<%= form_for [@resume, @reference] do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@reference) %></legend>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :relationship %>
+    <%= f.text_field :relationship %>
+    <%= f.label :company %>
+    <%= f.text_field :company %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.submit create_or_update(@reference), class: 'button small radius' %>
+  </fieldset>
+<% end %>

@@ -2,6 +2,15 @@
 @import 'foundation';
 @import "foundation-icons/foundation-icons.css";
 
+a.warning {
+  color: $alert-color;
+  &:hover, &:focus {
+    color: scale-color($alert-color, $lightness: -14%);
+  }
+}
+
+i[class*='fi-'] { margin-right: 0.5rem; }
+
 .size-12 { font-size: 12px; }
 
 .size-14 { font-size: 14px; }

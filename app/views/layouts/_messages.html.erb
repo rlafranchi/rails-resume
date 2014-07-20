@@ -1,7 +1,7 @@
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <div class="alert-box <%= name == :notice ? "warning" : "success" %>">
-      <a class="close" data-alert>&#215;</a>
+    <div class="alert-box <%= name == :notice ? "warning" : "success" %> data-alert">
+      <a href="#" class="close">&#215;</a>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     </div>
   <% end %>

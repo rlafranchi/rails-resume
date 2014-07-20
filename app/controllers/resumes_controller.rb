@@ -15,10 +15,14 @@ class ResumesController < ApplicationController
     @objective = Objective.new
 
     @skills = @resume.skills
+    @new_skill = Skill.new
     @schools = @resume.schools
+    @new_school = School.new
     @jobs = @resume.experiences
+    @new_job = Experience.new
     # @projects = @jobs.projects
     @hobbies = @resume.hobbies
+
     @references = @resume.references
     @customs = @resume.customs
   end

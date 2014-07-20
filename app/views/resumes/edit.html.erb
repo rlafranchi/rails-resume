@@ -1,12 +1,14 @@
 <%= render 'shared/title', title: "Build your Resume" %>
-<a href="<%= resume_path(@resume) %>" data-reveal-id="myModal" data-reveal-ajax="true">
-    Click Me For A Modal
-</a>
+<%= render 'layouts/messages' %>
 <div class="row">
-  <div class="medium-12 columns">
-    <%= render 'layouts/messages' %>
-    <h1>Objective</h1>
-
+  <div class="medium-4 columns">
+    <h3 class="subheader">Welcome to your resume builder dashboard.</h3>
+    <hr />
+    <p>Building your resume is easy.  Use the panels below to add items to your resume.  Use the text area to enter an objective.  An objective is a great way to describe your career and life goals.</p>
+  </div>
+  <div class="medium-8 columns">
+    <h3>Objective</h3>
+    <hr />
     <% if @resume.objective %>
       <p><%= @resume.objective.description %></p>
       <%= link_to "Edit Objective", edit_resume_objective_path({resume_id: @resume.id, id: @resume.objective.id}), class: 'button small radius' %>
@@ -20,63 +22,40 @@
 <div class="row">
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>Skills</h3>
-      <ul class="no-bullet">
-        <% @skills.each do |skill| %>
-          <li><strong><%= skill.title %></strong> -
-            <small><%= link_to "edit", edit_resume_skill_path(@resume,skill) %></small>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to "Add Skill", new_resume_skill_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @skills, title: "Skills" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Skill".html_safe, new_resume_skill_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>Education</h3>
-      <ul class="no-bullet">
-      <% @schools.each do |school| %>
-        <li>
-          <strong><%= school.name %> -
-          <%= link_to "<i class=\"step fi-pencil size-24\"></i>".html_safe, edit_resume_school_path(@resume,school), title: "Edit" %></small>
-        </li>
-      <% end %>
-      </ul>
-      <%= link_to "Add School", new_resume_school_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @schools, title: "Education" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add School".html_safe, new_resume_school_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>Work Experience</h3>
-      <ul class="no-bullet">
-      <% @jobs.each do |job| %>
-        <li>
-          <strong><%= job.job_title %> -
-          <small><%= link_to "Edit", edit_resume_experience_path(@resume,job) %></small>
-        </li>
-      <% end %>
-      </ul>
-      <%= link_to "Add Job", new_resume_experience_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @jobs, title: "Work Experience" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Job".html_safe, new_resume_experience_path(@resume), class: 'button small radius' %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>Hobbies</h3>
-      <%= link_to "Add Hobby", new_resume_hobby_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @hobbies, title: "Hobbies" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Hobby".html_safe, new_resume_hobby_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>References</h3>
-      <%= link_to "Add Reference", new_resume_reference_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @references, title: "References" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Reference".html_safe, new_resume_reference_path(@resume), class: 'button small radius' %>
     </div>
   </div>
   <div class="medium-4 columns">
     <div class="panel">
-      <h3>Custom</h3>
-      <%= link_to "Add Custom", new_resume_custom_path(@resume), class: 'button small radius' %>
+      <%= render 'shared/resume_panel', objs: @customs, title: "Custom" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Custom".html_safe, new_resume_custom_path(@resume), class: 'button small radius' %>
     </div>
   </div>
 </div>

@@ -1,10 +1,10 @@
 module ApplicationHelper
-  def element_description(obj)
-    if obj.title
+  def obj_title(obj)
+    if obj.respond_to? :title
       obj.title
-    elsif obj.job_title
+    elsif obj.respond_to? :job_title
       obj.job_title
-    elsif obj.name
+    elsif obj.respond_to? :name
       obj.name
     else
       "Objective"

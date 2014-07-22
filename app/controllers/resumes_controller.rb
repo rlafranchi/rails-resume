@@ -1,5 +1,5 @@
 class ResumesController < ApplicationController
-    before_action :set_resume, only: [:show, :edit, :destroy]
+    before_action :set_resume, only: [:show, :edit]
     before_action :require_user, except: [:index, :show]
     before_action :require_resume, except: [:index, :show]
 
@@ -26,18 +26,6 @@ class ResumesController < ApplicationController
     @hobbies = @resume.hobbies
     @references = @resume.references
     @customs = @resume.customs
-  end
-
-  def create
-    @resume = Resume.new
-    @resume.user = current_user
-    @resume.save
-    redirect_to edit_resume_path(@resume)
-  end
-
-  def destroy
-    @resume.destroy
-    redirect_to root_path
   end
 
   private

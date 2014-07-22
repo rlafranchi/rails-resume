@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @job %>
 <div class="row">
-  <div class="medium-4 columns">
+  <div class="medium-6 columns">
       <%= form_for [@resume, @job] do |f| %>
         <fieldset>
         <legend><%= create_or_update(@job) %></legend>
@@ -14,11 +14,13 @@
             <%= f.text_field :state %>
             <%= f.label :phone %>
             <%= f.text_field :phone %>
+            <%= f.label :responsibilities %>
+            <%= f.text_area :responsibilities %>
             <%= f.submit create_or_update(@job), class: 'button small radius' %>
         </fieldset>
       <% end %>
   </div>
-  <div class="medium-8 columns">
+  <div class="medium-6 columns">
 
     <% unless @job.new_record? || @project.nil? %>
       <h3>Projects</h3>

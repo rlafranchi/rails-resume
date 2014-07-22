@@ -1,6 +1,8 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:edit, :update, :destroy]
   before_action :set_resume
+  before_action :require_user, except: [:index, :show]
+  before_action :require_resume, except: [:index, :show]
 
   def new
     @job = Experience.new
@@ -52,6 +54,6 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:job_title, :company, :phone, :city, :state)
+    params.require(:experience).permit(:job_title, :company, :phone, :city, :state, :responsibilities)
   end
 end

@@ -1,8 +1,9 @@
 <%= render 'shared/title', title: "Resume Builder" %>
+<%= render 'layouts/messages' %>
 <div class="row">
   <div class="medium-6 columns">
     <h3>Recent Resumes</h3>
-    <ul>
+    <ul class="no-bullet">
       <%= render @resumes[0..4] %>
     </ul>
   </div>

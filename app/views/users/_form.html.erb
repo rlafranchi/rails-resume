@@ -1,0 +1,58 @@
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_for @user do |f| %>
+  <fieldset>
+    <legend><%= @user.new_record? ? "Register" : "Update Profile" %></legend>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.label :password %>
+        <%= f.text_field :password %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.label :city %>
+        <%= f.text_field :city %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.label :state %>
+        <%= f.text_field :state %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code %>
+      </div>
+    </div>
+    <%= f.submit( @user.new_record? ? "Register" : "Update Profile", class: 'button small radius' ) %>
+  </fieldset>
+<% end %>

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'resumes#index'
-  resources :resumes, except: [:new, :update, :destroy] do
-    resources :objectives, only: [:create, :update, :edit]
+  resources :resumes, except: [:new, :update] do
+    resources :objectives, only: [:create, :update, :edit, :show]
     resources :skills, except: [:index]
     resources :schools
     resources :experiences do
@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :references
     resources :customs
   end
+
+  get '/register', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  resources :users, only: [:create, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

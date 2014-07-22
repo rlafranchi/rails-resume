@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy]
   before_action :set_experience
   before_action :set_resume
+  before_action :require_user, except: [:index, :show]
+  before_action :require_resume, except: [:index, :show]
 
   def create
     @project = Project.new(project_params)

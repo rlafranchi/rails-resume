@@ -6,7 +6,7 @@
         <h5>
           <%= obj_title(obj) %>
           <%= link_to "<i class=\"fi-pencil right\"></i>".html_safe, [:edit, @resume, obj], title: 'Edit' %>
-          <%= link_to "<i class=\"fi-minus-circle right\"></i>".html_safe, [@resume, obj], method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', class: 'warning' %>
+          <%= link_to "<i class=\"fi-trash right\"></i>".html_safe, [@resume, obj], method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', class: 'warning' %>
         </h5>
       </li>
       <hr />

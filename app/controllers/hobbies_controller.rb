@@ -1,6 +1,8 @@
 class HobbiesController < ApplicationController
   before_action :set_hobby, only: [:edit, :update, :destroy]
   before_action :set_resume
+  before_action :require_user, except: [:index, :show]
+  before_action :require_resume, except: [:index, :show]
 
   def new
     @hobby = Hobby.new

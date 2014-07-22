@@ -1,4 +1,7 @@
 class ResumesController < ApplicationController
+    before_action :set_resume, only: [:show, :edit, :destroy]
+    before_action :require_user, except: [:index, :show]
+    before_action :require_resume, except: [:index, :show]
 
   def index
     @resumes = Resume.all
@@ -6,7 +9,6 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @resume = Resume.find(params[:id])
     @objective = @resume.objective
     @skills = @resume.skills
     @schools = @resume.schools
@@ -17,7 +19,6 @@ class ResumesController < ApplicationController
   end
 
   def edit
-    @resume = Resume.find(params[:id])
     @objective = Objective.new
     @skills = @resume.skills
     @schools = @resume.schools
@@ -29,14 +30,19 @@ class ResumesController < ApplicationController
 
   def create
     @resume = Resume.new
-    @resume.user_id = User.first.id
+    @resume.user = current_user
     @resume.save
-    redirect_to resume_path(@resume)
+    redirect_to edit_resume_path(@resume)
   end
 
   def destroy
-    @resume = Resume.find(params[:id])
     @resume.destroy
     redirect_to root_path
+  end
+
+  private
+
+  def set_resume
+    @resume = Resume.find(params[:id])
   end
 end

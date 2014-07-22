@@ -1,0 +1,4 @@
+<% if logged_in? && current_resume.id == @resume.id %>
+  <%= link_to "<i class=\"fi-pencil right\"></i>".html_safe, [:edit, @resume, obj], title: 'Edit' %>
+  <%= link_to "<i class=\"fi-minus-circle right\"></i>".html_safe, [@resume, obj], method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', class: 'warning' %>
+<% end %>

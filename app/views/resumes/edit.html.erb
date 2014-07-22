@@ -1,17 +1,19 @@
 <%= render 'shared/title', title: "Build your Resume" %>
 <%= render 'layouts/messages' %>
 <div class="row">
-  <div class="medium-4 columns">
-    <h3 class="subheader">Welcome to your resume builder dashboard.</h3>
+  <div class="medium-6 columns">
+    <h3 class="subheader">Welcome, <%= current_user.first_name %></h3>
     <hr />
     <p>Building your resume is easy.  Use the panels below to add items to your resume.  Use the text area to enter an objective.  An objective is a great way to describe your career and life goals.</p>
+    <%= link_to "<i class=\"fi-pencil\"></i> Edit Profile".html_safe, edit_user_path(current_user), class: 'small button radius' %>
+    <%= link_to "<i class=\"fi-eye\"></i> View Resume".html_safe, resume_path(@resume), class: 'small button radius' %>
   </div>
-  <div class="medium-8 columns">
+  <div class="medium-6 columns">
     <h3>Objective</h3>
     <hr />
     <% if @resume.objective %>
       <p><%= @resume.objective.description %></p>
-      <%= link_to "Edit Objective", edit_resume_objective_path({resume_id: @resume.id, id: @resume.objective.id}), class: 'button small radius' %>
+      <%= link_to "<i class=\"fi-pencil\"></i> Edit Objective".html_safe, edit_resume_objective_path({resume_id: @resume.id, id: @resume.objective.id}), class: 'button small radius' %>
     <% else %>
       <%= render 'objectives/form' %>
     <% end %>

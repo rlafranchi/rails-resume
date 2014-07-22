@@ -39,7 +39,7 @@
           <h2>Education</h2>
           <hr />
           <% @schools.each do |school| %>
-            <h3><%= school.name %> <small><%= school.degree %>Graduated <%= school.year_graduated %></small> <%= render 'shared/edit_logged_in', obj: school %></h3>
+            <h3><%= school.name %> <small><%= school.degree %> Graduated <%= school.year_graduated %></small></h3>
           <% end %>
         </section>
     <% end %>
@@ -49,7 +49,7 @@
           <h2>Work Experience</h2>
           <hr />
           <% @jobs.each do |job| %>
-            <h3><%= job.job_title %> <small><%= job.company %>, <%= job.city %>, <%= job.state %> <span class='right'><%= job.phone %></span></small></h3>
+            <h3><%= job.job_title %> <small><%= job.company %>, <%= job.city %>, <%= job.state %> <%= job.phone %></small></h3>
             <p><%= job.responsibilities %></p>
             <% job.projects.each do |project| %>
               <p><strong><%= project.name %></strong> - <%= project.description %></p>

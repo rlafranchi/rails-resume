@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   root 'resumes#index'
   resources :resumes, except: [:new, :update] do
     resources :objectives, only: [:create, :update, :edit, :show]
-    resources :skills, except: [:index]
-    resources :schools
-    resources :experiences do
-      resources :projects
+    resources :skills, except: [:index, :show]
+    resources :schools, except: [:index, :show]
+    resources :experiences, except: [:index, :show] do
+      resources :projects, except: [:index, :show]
     end
-    resources :hobbies
-    resources :references
-    resources :customs
+    resources :hobbies, except: [:index, :show]
+    resources :references, except: [:index, :show]
+    resources :customs, except: [:index, :show]
   end
 
   get '/register', to: 'users#new'

@@ -6,6 +6,11 @@ class CustomsController < ApplicationController
 
   def new
     @custom = Custom.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -20,7 +25,12 @@ class CustomsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @custom.update(custom_params)

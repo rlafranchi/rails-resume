@@ -25,6 +25,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     session[:resume_id] = nil
     flash[:notice] = "You've logged out!"
-    redirect_to :back
+    redirect_to root_path
   end
 end

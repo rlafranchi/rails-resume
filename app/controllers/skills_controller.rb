@@ -6,6 +6,11 @@ class SkillsController < ApplicationController
 
   def new
     @skill = Skill.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -20,7 +25,12 @@ class SkillsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @skill.update(skill_params)

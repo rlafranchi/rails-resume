@@ -6,6 +6,11 @@ class SchoolsController < ApplicationController
 
   def new
     @school = School.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -19,7 +24,12 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @school.update(school_params)
@@ -32,6 +42,8 @@ class SchoolsController < ApplicationController
 
   def destroy
     @school.destroy
+    flash[:notice] = "School Deleted"
+    redirect_to edit_resume_path(@resume)
   end
 
   private

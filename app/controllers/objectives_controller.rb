@@ -17,7 +17,12 @@ class ObjectivesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @objective.update(objective_params)

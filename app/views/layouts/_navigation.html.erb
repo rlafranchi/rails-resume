@@ -14,7 +14,7 @@
 
       <% if @resume && current_page?( resume_path(@resume) ) %>
         <% if @skills.any? %>
-          <li><%= link_to "Skills", '#skills' %></li>
+          <li><%= link_to "Skills", '#skills', id: 'top-skills' %></li>
         <% end %>
 
         <% if @schools.any? %>

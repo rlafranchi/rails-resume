@@ -13,7 +13,3 @@
     <%= f.submit create_or_update(@project), class: 'button small radius' %>
   </fieldset>
 <% end %>
-
-<% unless @project.new_record? %>
-  <%= link_to "<i class=\"fi-arrow-left\"></i> Back".html_safe, edit_resume_experience_path(@resume, @job), title: "Back to Experience" %>
-<% end %>

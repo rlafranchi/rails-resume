@@ -17,7 +17,12 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @project.update(project_params)

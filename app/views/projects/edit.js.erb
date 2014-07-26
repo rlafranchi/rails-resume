@@ -1,0 +1,3 @@
+$("<%= escape_javascript(render 'projects/form') %>").prependTo('#modal');
+$("<%= escape_javascript(render 'shared/title', title: "Edit Project") %>").prependTo('#modal');
+$('#modal').foundation('reveal', 'open');

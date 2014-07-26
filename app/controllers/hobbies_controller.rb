@@ -6,6 +6,11 @@ class HobbiesController < ApplicationController
 
   def new
     @hobby = Hobby.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -20,7 +25,12 @@ class HobbiesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def update
     if @hobby.update(hobby_params)

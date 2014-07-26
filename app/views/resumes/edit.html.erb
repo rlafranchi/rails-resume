@@ -13,7 +13,7 @@
     <hr />
     <% if @resume.objective %>
       <p><%= @resume.objective.description %></p>
-      <%= link_to "<i class=\"fi-pencil\"></i> Edit Objective".html_safe, edit_resume_objective_path({resume_id: @resume.id, id: @resume.objective.id}), class: 'button small radius' %>
+      <%= link_to "<i class=\"fi-pencil\"></i> Edit Objective".html_safe, edit_resume_objective_path(@resume,@resume.objective), class: 'button small radius' %>
     <% else %>
       <%= render 'objectives/form' %>
     <% end %>

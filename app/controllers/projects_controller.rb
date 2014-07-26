@@ -37,19 +37,19 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.find_by(slug: params[:id])
   end
 
   def set_experience
-    @job = Experience.find(params[:experience_id])
+    @job = Experience.find_by(slug: params[:experience_id])
   end
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def project_params
-    params.require(:project).permit(:name,:description)
+    params.require(:project).permit(:name, :description, :url)
   end
 
 end

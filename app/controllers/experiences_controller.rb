@@ -28,7 +28,6 @@ class ExperiencesController < ApplicationController
   end
 
   def update
-  @job = Experience.find(params[:id])
     if @job.update(experience_params)
       flash[:notice] = "Job Updated"
       redirect_to edit_resume_path(@resume)
@@ -46,14 +45,14 @@ class ExperiencesController < ApplicationController
   private
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def set_experience
-    @job = Experience.find(params[:id])
+    @job = Experience.find_by(slug: params[:id])
   end
 
   def experience_params
-    params.require(:experience).permit(:job_title, :company, :phone, :city, :state, :responsibilities)
+    params.require(:experience).permit(:job_title, :company, :phone, :city, :state, :responsibilities, :url)
   end
 end

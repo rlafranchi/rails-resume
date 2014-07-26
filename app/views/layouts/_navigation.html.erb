@@ -11,18 +11,8 @@
   </ul>
   <section class="top-bar-section">
     <ul class="right">
-      <% if logged_in? %>
-        <li><%= link_to "Log Out", logout_path %></li>
-        <li><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
-        <li><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
-      <% elsif current_page?( root_path ) %>
-        <li><%= link_to "Login", login_path %></li>
-        <li><%= link_to "Register", register_path %></li>
-      <% elsif current_page?( register_path ) %>
-        <li><%= link_to "Login", login_path %></li>
-      <% elsif current_page?( login_path ) %>
-        <li><%= link_to "Register", register_path %></li>
-      <% elsif @resume && current_page?( resume_path(@resume) ) %>
+
+      <% if @resume && current_page?( resume_path(@resume) ) %>
         <% if @skills.any? %>
           <li><%= link_to "Skills", '#skills' %></li>
         <% end %>
@@ -48,6 +38,19 @@
             <li><%= link_to custom.title, "#custom-" + custom.id.to_s %></li>
           <% end %>
         <% end %>
+      <% end %>
+
+      <% if logged_in? %>
+        <li><%= link_to "Log Out", logout_path %></li>
+        <li><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
+        <li><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
+      <% elsif current_page?( root_path ) %>
+        <li><%= link_to "Login", login_path %></li>
+        <li><%= link_to "Register", register_path %></li>
+      <% elsif current_page?( register_path ) %>
+        <li><%= link_to "Login", login_path %></li>
+      <% elsif current_page?( login_path ) %>
+        <li><%= link_to "Register", register_path %></li>
       <% end %>
     </ul>
   </section>

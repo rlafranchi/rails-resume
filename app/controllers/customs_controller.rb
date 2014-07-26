@@ -40,11 +40,11 @@ class CustomsController < ApplicationController
   private
 
   def set_custom
-    @custom = Custom.find(params[:id])
+    @custom = Custom.find_by(slug: params[:id])
   end
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def custom_params

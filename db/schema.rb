@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722021522) do
+ActiveRecord::Schema.define(version: 20140725200719) do
 
   create_table "customs", force: true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "experiences", force: true do |t|
@@ -31,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "updated_at"
     t.integer  "resume_id"
     t.text     "responsibilities"
+    t.string   "slug"
+    t.string   "url"
   end
 
   create_table "hobbies", force: true do |t|
@@ -39,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "objectives", force: true do |t|
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "projects", force: true do |t|
@@ -54,6 +59,8 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.integer  "experience_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+    t.string   "url"
   end
 
   create_table "references", force: true do |t|
@@ -65,12 +72,14 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "resumes", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "schools", force: true do |t|
@@ -80,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "skills", force: true do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
   end
 
   create_table "users", force: true do |t|
@@ -104,6 +115,7 @@ ActiveRecord::Schema.define(version: 20140722021522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "slug"
   end
 
 end

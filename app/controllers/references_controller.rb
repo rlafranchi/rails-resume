@@ -40,11 +40,11 @@ class ReferencesController < ApplicationController
   private
 
   def set_reference
-    @reference = Reference.find(params[:id])
+    @reference = Reference.find_by(slug: params[:id])
   end
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def reference_params

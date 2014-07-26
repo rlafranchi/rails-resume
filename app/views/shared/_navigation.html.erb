@@ -1,0 +1,28 @@
+<ul class="inline-list">
+  <% if @skills.any? %>
+    <li><%= link_to "Skills", '#skills' %></li>
+  <% end %>
+
+  <% if @schools.any? %>
+    <li><%= link_to "Education", '#education' %></li>
+  <% end %>
+
+  <% if @jobs.any? %>
+    <li><%= link_to "Work Experience", '#work' %></li>
+  <% end %>
+
+  <% if @hobbies.any? %>
+    <li><%= link_to "Hobbies", '#hobbies' %></li>
+  <% end %>
+
+  <% if @references.any? %>
+    <li><%= link_to "References", '#references' %></li>
+  <% end %>
+
+  <% if @customs.any? %>
+    <% @customs.each do |custom| %>
+      <li><%= link_to custom.title, "#custom-" + custom.id.to_s %></li>
+    <% end %>
+  <% end %>
+
+</ul>

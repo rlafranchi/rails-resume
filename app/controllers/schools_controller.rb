@@ -37,11 +37,11 @@ class SchoolsController < ApplicationController
   private
 
   def set_school
-    @school = School.find(params[:id])
+    @school = School.find_by(slug: params[:id])
   end
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def school_params

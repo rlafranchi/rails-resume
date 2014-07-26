@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
-
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -22,6 +25,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     session[:resume_id] = nil
     flash[:notice] = "You've logged out!"
-    redirect_to root_path
+    redirect_to :back
   end
 end

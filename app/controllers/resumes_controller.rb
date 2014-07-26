@@ -31,6 +31,6 @@ class ResumesController < ApplicationController
   private
 
   def set_resume
-    @resume = Resume.find(params[:id])
+    @resume = Resume.find_by(slug: params[:id])
   end
 end

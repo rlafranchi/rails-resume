@@ -8,7 +8,7 @@
       <%= render @resumes[0..4] %>
     <% end %>
   </div>
-  <% if !logged_in? %>
+  <% unless logged_in? %>
     <div class="medium-4 columns panel">
       <h3>Create a Resume</h3>
       <%= link_to "Sign Up", register_path, class: 'small button radius' %>

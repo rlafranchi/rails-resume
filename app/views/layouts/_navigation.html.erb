@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <% if @resume && current_page?( resume_path(@resume) ) %>
+      <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
         <h1><%= link_to "Resume - " + @resume.user.first_name + " " + @resume.user.last_name, '' %></h1>
       <% else %>
         <h1><%= link_to "Home", root_path %></h1>
@@ -12,7 +12,7 @@
   <section class="top-bar-section">
     <ul class="right">
 
-      <% if @resume && current_page?( resume_path(@resume) ) %>
+      <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
         <% if @skills.any? %>
           <li><%= link_to "Skills", '#skills', id: 'top-skills' %></li>
         <% end %>

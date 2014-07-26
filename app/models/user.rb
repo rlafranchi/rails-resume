@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   gravtastic
 
   has_one :resume
+  has_one :gravatar
   has_secure_password
 
   validates :username, presence: true, uniqueness: true

@@ -30,3 +30,14 @@ i[class*='fi-'] { margin-right: 0.5rem; }
 .size-60 { font-size: 60px; }
 
 .size-72 { font-size: 72px; }
+
+.gravatar {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #777;
+  padding: rem-calc(2);
+
+  &.index {
+    margin-top: 0;
+  }
+}

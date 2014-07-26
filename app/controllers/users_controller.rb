@@ -4,16 +4,27 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @resume = Resume.new
   end
 
   def create
     @user = User.new(user_params)
     @resume = Resume.new
+    @gravatar = Gravatar.new
 
     if @user.save
       flash[:notice] = "You are registered"
+
+      #associate resume
       @resume.user = @user
       @resume.save
+
+      #associate gravatar
+      @gravatar.user = @user
+      @gravatar.use_custom_url = false
+      @gravatar.show_image = true
+      @gravatar.save
+
       session[:user_id] = @user.id
       session[:resume_id] = @resume.id
       redirect_to edit_resume_path(@resume)
@@ -31,7 +42,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile Updated"
       redirect_to edit_resume_path(@resume)
     else
-      render :new
+      render :edit
     end
   end
 

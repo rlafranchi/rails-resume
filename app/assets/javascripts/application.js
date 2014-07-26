@@ -20,8 +20,7 @@ jQuery(document).foundation();
 
 $(document).ready(function () {
   $('#modal').html('<a class="close-reveal-modal">&#215;</a>');
-  $('#modal').html('<a class="close-reveal-modal">&#215;</a>');
-  $(this).on('closed.fndtn.reveal', '[data-reveal]', function () {
+  $(this).on('close.fndtn.reveal', '[data-reveal]', function () {
     var modal = $(this);
     modal.html('<a class="close-reveal-modal">&#215;</a>');
   });

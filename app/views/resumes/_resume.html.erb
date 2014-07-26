@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-2 columns"><img src="image.jpeg" height="100" width = "100" alt=""></div>
+  <div class="small-2 columns"><%= image_tag resume.user.gravatar_url(:size => "120"), class: 'gravatar index' %></div>
   <div class="small-10 columns">
     <blockquote><h3><%= link_to "#{resume.user.first_name} #{resume.user.last_name}", resume_path(resume) %></h3>
       <% if resume.objective %>

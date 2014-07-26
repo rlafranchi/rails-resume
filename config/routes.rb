@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
-  resources :users, only: [:create, :edit, :update]
+  resources :users, only: [:create, :edit, :update] do
+    resources :gravatars, only: [:create, :edit, :update]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

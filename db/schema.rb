@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725200719) do
+ActiveRecord::Schema.define(version: 20140726164202) do
 
   create_table "customs", force: true do |t|
     t.string   "title"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140725200719) do
     t.text     "responsibilities"
     t.string   "slug"
     t.string   "url"
+  end
+
+  create_table "gravatars", force: true do |t|
+    t.integer "user_id"
+    t.boolean "show_image"
+    t.boolean "use_custom_url"
+    t.string  "custom_image_url"
   end
 
   create_table "hobbies", force: true do |t|

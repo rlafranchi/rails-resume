@@ -1,0 +1,12 @@
+<%= render 'shared/errors', obj: @gravatar%>
+<%= image
+<%= form_for [@user, @gravatar] do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@gravatar) %></legend>
+    <%= f.label '' %>
+    <%= f.text_field :title %>
+    <%= f.label :use_custom_url %>
+    <%= f.check_box :use_custom_url %>
+    <%= f.submit create_or_update(@gravatar, class: 'button small radius' %>
+  </fieldset>
+<% end %>

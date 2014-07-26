@@ -1,18 +1,55 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
+      <% if @resume && current_page?( resume_path(@resume) ) %>
+        <h1><%= link_to "Resume - " + @resume.user.first_name + " " + @resume.user.last_name, '' %></h1>
+      <% else %>
         <h1><%= link_to "Home", root_path %></h1>
+      <% end %>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
   <section class="top-bar-section">
     <ul class="right">
+
+      <% if @resume && current_page?( resume_path(@resume) ) %>
+        <% if @skills.any? %>
+          <li><%= link_to "Skills", '#skills' %></li>
+        <% end %>
+
+        <% if @schools.any? %>
+          <li><%= link_to "Education", '#education' %></li>
+        <% end %>
+
+        <% if @jobs.any? %>
+          <li><%= link_to "Work Experience", '#work' %></li>
+        <% end %>
+
+        <% if @hobbies.any? %>
+          <li><%= link_to "Hobbies", '#hobbies' %></li>
+        <% end %>
+
+        <% if @references.any? %>
+          <li><%= link_to "References", '#references' %></li>
+        <% end %>
+
+        <% if @customs.any? %>
+          <% @customs.each do |custom| %>
+            <li><%= link_to custom.title, "#custom-" + custom.id.to_s %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+
       <% if logged_in? %>
         <li><%= link_to "Log Out", logout_path %></li>
         <li><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
         <li><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
-      <% else %>
+      <% elsif current_page?( root_path ) %>
         <li><%= link_to "Login", login_path %></li>
+        <li><%= link_to "Register", register_path %></li>
+      <% elsif current_page?( register_path ) %>
+        <li><%= link_to "Login", login_path %></li>
+      <% elsif current_page?( login_path ) %>
         <li><%= link_to "Register", register_path %></li>
       <% end %>
     </ul>

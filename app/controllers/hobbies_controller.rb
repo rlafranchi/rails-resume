@@ -40,11 +40,11 @@ class HobbiesController < ApplicationController
   private
 
   def set_hobby
-    @hobby = Hobby.find(params[:id])
+    @hobby = Hobby.find_by(slug: params[:id])
   end
 
   def set_resume
-    @resume = Resume.find(params[:resume_id])
+    @resume = Resume.find_by(slug: params[:resume_id])
   end
 
   def hobby_params

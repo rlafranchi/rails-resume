@@ -1,0 +1,21 @@
+<hr />
+<div class="row">
+  <div class="medium-12 columns text-center">
+    <span class="left">
+      <%= link_to "Rails Resume <i class=\"fi-social-github\"></i>".html_safe, 'http://github.com/rlafranchi/rails-resume', title: "Rails Resume on Github", class: 'size-24' %>
+    </span>
+    <span class="right">
+    <ul class="inline-list">
+      <li><%= link_to "Home", root_path %></li>
+      <% unless logged_in? %>
+        <% unless current_page? login_path %>
+          <li><%= link_to "Log In", login_path, method: 'get', remote: true %></li>
+        <% end %>
+        <% unless current_page? register_path %>
+          <li><%= link_to "Create a Resume", register_path %></li>
+        <% end %>
+      <% end %>
+    </ul>
+    </span>
+  </div>
+</div>

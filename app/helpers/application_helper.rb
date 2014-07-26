@@ -14,4 +14,8 @@ module ApplicationHelper
   def create_or_update(obj)
     obj.new_record? ? "Create #{obj.class.name}" : "Update #{obj.class.name}"
   end
+
+  def fix_url(str)
+    str.starts_with?('http://') ? str : "http://#{str}"
+  end
 end

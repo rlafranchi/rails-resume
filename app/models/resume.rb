@@ -1,4 +1,7 @@
 class Resume < ActiveRecord::Base
+  include Sluggable
+  user_column :last_name
+
   has_many :schools
   has_many :hobbies
   has_many :experiences

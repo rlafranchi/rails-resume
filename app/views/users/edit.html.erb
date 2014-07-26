@@ -1,4 +1,9 @@
-<%= render 'shared/title', title: "User Profile" %>
+<div class="row">
+  <div class="medium-2 columns"><%= render 'shared/gravatar', res_obj: @resume %></div>
+  <div class="medium-10 columns"><h1><%= "#{@user.first_name} #{@user.last_name}" %></h1></div>
+</div>
+<hr />
+<%= link_to 'Edit Gravatar Settings', edit_user_gravatar_path(@user, @user.gravatar), class: 'button small radius' %>
 <%= render 'form' %>
 
 <%= link_to "<i class=\"fi-arrow-left\"></i> Back".html_safe, edit_resume_path(@resume), title: "Back to Dashboard" %>

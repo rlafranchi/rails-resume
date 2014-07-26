@@ -1,14 +1,16 @@
-<div class="medium-2 columns">
-    <%= image_tag @resume.user.gravatar_url(size: '150'), class: 'gravatar' %>
-</div>
-<div class="medium-10 columns">
-    <h1><%= "#{@resume.user.first_name} #{@resume.user.last_name}" %></h1>
-    <ul class="no-bullet">
-    <li><%= @resume.user.phone %></li>
-    <li><%= @resume.user.email %></li>
-    <li><%= @resume.user.address %></li>
-    <li><%= @resume.user.city + ", " + @resume.user.state + " " + @resume.user.zip_code %></li>
-    </ul>
+<div class="row">
+  <div class="medium-2 columns">
+      <%= render 'shared/gravatar', res_obj: @resume %>
+  </div>
+  <div class="medium-10 columns">
+      <h1><%= "#{@resume.user.first_name} #{@resume.user.last_name}" %></h1>
+      <ul class="no-bullet">
+      <li><%= @resume.user.phone %></li>
+      <li><%= @resume.user.email %></li>
+      <li><%= @resume.user.address %></li>
+      <li><%= @resume.user.city + ", " + @resume.user.state + " " + @resume.user.zip_code %></li>
+      </ul>
+  </div>
 </div>
 <hr />
 

@@ -1,5 +1,5 @@
 <div class="medium-2 columns">
-    <img class="th left" src= "image.jpg" height="150" width="150" />
+    <%= image_tag @resume.user.gravatar_url %>
 </div>
 <div class="medium-10 columns">
     <h1><%= "#{@resume.user.first_name} #{@resume.user.last_name}" %></h1>

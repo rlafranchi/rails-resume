@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   include Sluggable
   sluggable_column :last_name
 
+  include Gravtastic
+  gravtastic
+
   has_one :resume
   has_secure_password
 

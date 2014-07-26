@@ -45,3 +45,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # foundation
 gem 'foundation-rails'
+
+# gravatar
+gem 'gravtastic'

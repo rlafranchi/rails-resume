@@ -14,7 +14,9 @@ class UsersController < ApplicationController
       flash[:notice] = "You are registered"
       @resume.user = @user
       @resume.save
-      redirect_to login_path(@resume)
+      session[:user_id] = @user.id
+      session[:resume_id] = @resume.id
+      redirect_to edit_resume_path(@resume)
     else
       render :new
     end

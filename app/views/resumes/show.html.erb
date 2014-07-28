@@ -90,9 +90,11 @@
           <% @references.each do |reference| %>
             <p>
             <strong><%= reference.name %></strong> - <%= reference.relationship %><br/>
-            <%= reference.company %><br />
-            <%= reference.phone %><br />
-            <%= reference.email %>
+            <ul class="no-bullet">
+              <li><%= reference.company %></li>
+              <li><%= reference.phone %></li>
+              <li><%= reference.email %></li>
+            </ul>
             </p>
           <% end %>
       

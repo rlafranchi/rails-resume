@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
   def require_resume
     if @resume.id != current_resume.id && logged_in?
       redirect_to edit_resume_path(current_resume)
+    elsif @resume.user
     end
   end
 end

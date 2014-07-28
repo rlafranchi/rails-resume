@@ -1,6 +1,6 @@
 <div class="row">
   <div class="small-2 columns">
-    <%= render 'shared/gravatar', res_obj: resume %>
+    <%= render resume.user.gravatar, res_obj: resume %>
   </div>
   <div class="small-10 columns">
     <blockquote><h3><%= link_to "#{resume.user.first_name} #{resume.user.last_name}", resume_path(resume) %></h3>

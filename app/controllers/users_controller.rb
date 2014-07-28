@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
   before_action :set_resume, only: [:edit, :update]
+  before_action :require_user, except: [:new, :create]
 
   def new
     @user = User.new
@@ -34,10 +35,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    if current_user.id != @user.id
+      flash[:notice]
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def update
+    if current_user.id != @user.id
+      flash[:notice]
+      redirect_to edit_user_path(current_user)
+    end
+
     if @user.update(user_params)
       flash[:notice] = "Profile Updated"
       redirect_to edit_resume_path(@resume)

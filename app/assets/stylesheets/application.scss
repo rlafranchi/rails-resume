@@ -41,3 +41,12 @@ i[class*='fi-'] { margin-right: 0.5rem; }
     margin-top: 0;
   }
 }
+
+pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+section {
+  padding-bottom: 5rem;
+}

@@ -16,6 +16,7 @@ class ResumesController < ApplicationController
     @hobbies = @resume.hobbies
     @references = @resume.references
     @customs = @resume.customs
+    @snippets = @resume.snippets
   end
 
   def edit
@@ -26,6 +27,7 @@ class ResumesController < ApplicationController
     @hobbies = @resume.hobbies
     @references = @resume.references
     @customs = @resume.customs
+    @snippets = @resume.snippets
   end
 
   private

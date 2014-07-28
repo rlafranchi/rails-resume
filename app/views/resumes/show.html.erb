@@ -1,6 +1,6 @@
 <div class="row">
   <div class="medium-2 columns">
-      <%= render 'shared/gravatar', res_obj: @resume %>
+      <%= render @resume.user.gravatar, res_obj: @resume %>
   </div>
   <div class="medium-10 columns">
       <h1><%= "#{@resume.user.first_name} #{@resume.user.last_name}" %></h1>
@@ -15,10 +15,10 @@
 <hr />
 
 <div class="row">
-  <div class="medium-8 columns medium-centered">
+  <div id="sections" class="medium-8 columns medium-centered">
     <% if @resume.objective %>
-        <section id="objective">
-          <h2>Objective</h2>
+        <section id="objective" class="current">
+          <h3>Objective</h3>
           <hr />
           <p><%= @resume.objective.description %></p>
         </section>
@@ -26,7 +26,7 @@
 
     <% if @skills.any? %>
         <section id="skills">
-          <h2>Skills</h2>
+          <h3>Skills</h3>
           <hr />
           <% @skills.each do |skill| %>
             <p><strong><%= skill.title %> - </strong><%= skill.description %></p>
@@ -35,8 +35,8 @@
     <% end %>
     
     <% if @schools.any? %>
-        <section id="education">
-          <h2>Education</h2>
+        <section id="schools">
+          <h3>Education</h3>
           <hr />
           <% @schools.each do |school| %>
             <h3><%= school.name %> <small>Graduated in <%= school.year_graduated %></small></h3>
@@ -46,17 +46,18 @@
     <% end %>
     
     <% if @jobs.any? %>
-        <section id="work">
-          <h2>Work Experience</h2>
+        <section id="jobs">
+          <h3>Work Experience</h3>
           <hr />
           <% @jobs.each do |job| %>
-            <h3><%= job.job_title %></h3>
+            <h3><%= job.job_title %> <small><%= job.start_date %> - <%= job.end_date %></small></h3>
             <h5 class="subheader"><%= job.company %>, <%= job.city %>, <%= job.state %> <%= job.phone %></h5>
             <% if job.url %>
               <h5><%= link_to job.url, fix_url(job.url) %></h5>
             <% end %>
             <p><%= job.responsibilities %></p>
             <% if job.projects.any? %>
+            <h5>Projects</h5>
             <ul>
             <% job.projects.each do |project| %>
               <li>
@@ -75,7 +76,7 @@
 
     <% if @hobbies.any? %>
         <section id="hobbies">
-          <h2>Hobbies</h2>
+          <h3>Hobbies</h3>
           <hr />
           <% @hobbies.each do |hobby| %>
             <p><strong><%= hobby.title %></strong> - <%= hobby.description %></p>
@@ -85,7 +86,7 @@
 
     <% if @references.any? %>
         <section id="references">
-          <h2>References</h2>
+          <h3>References</h3>
           <hr />
           <% @references.each do |reference| %>
             <p>
@@ -103,12 +104,21 @@
     
     <% @customs.each do |custom| %>
       <section id="custom-<%= custom.id %>">
-        <h2><%= custom.title %></h2>
+        <h3><%= custom.title %></h3>
         <hr />
         <p>
           <%= custom.description %>
         </p>
 
+      </section>
+    <% end %>
+
+    <% @snippets.each do |snippet| %>
+      <section id="snippet-<%= snippet.id %>">
+        <h3><%= snippet.title %></h3>
+        <hr />
+        <p><%= snippet.description %></p>
+        <pre><code><%= snippet.code %></code></pre>
       </section>
     <% end %>
   </div>

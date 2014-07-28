@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726164202) do
+ActiveRecord::Schema.define(version: 20140728222356) do
 
   create_table "customs", force: true do |t|
     t.string   "title"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140726164202) do
     t.text     "responsibilities"
     t.string   "slug"
     t.string   "url"
+    t.string   "start_date"
+    t.string   "end_date"
   end
 
   create_table "gravatars", force: true do |t|
@@ -105,6 +107,16 @@ ActiveRecord::Schema.define(version: 20140726164202) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "resume_id"
+    t.string   "slug"
+  end
+
+  create_table "snippets", force: true do |t|
+    t.integer  "resume_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "slug"
   end
 

@@ -1,0 +1,14 @@
+<%= render 'shared/errors', obj: @snippet %>
+
+<%= form_for [@resume, @snippet] do |f| %>
+  <fieldset>
+    <legend><%= create_or_update(@snippet) %></legend>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :code %>
+    <%= f.text_area :code %>
+    <%= f.submit create_or_update(@snippet), class: 'button small radius' %>
+  </fieldset>
+<% end %>

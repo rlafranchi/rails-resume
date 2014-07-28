@@ -1,27 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple resume building application built with Ruby on Rails v 4.1.4
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Install
+Clone the repo and run <tt>bundle install --witouth production</tt>
+Run locally by running <tt>rails server</tt> or deploy to heroku by running <tt>heroku create</tt>, and <tt>git push heroku master</tt>
 
 
 Please feel free to use a different markup language if you do not plan to run

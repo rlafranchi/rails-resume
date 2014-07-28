@@ -8,6 +8,7 @@ class Resume < ActiveRecord::Base
   has_many :skills
   has_many :references
   has_many :customs
+  has_many :snippets
   has_one :objective
   belongs_to :user
 end

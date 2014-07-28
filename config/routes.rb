@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :hobbies, except: [:index, :show]
     resources :references, except: [:index, :show]
     resources :customs, except: [:index, :show]
+    resources :snippets, except: [:index, :show]
   end
 
   get '/register', to: 'users#new'

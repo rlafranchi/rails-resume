@@ -61,3 +61,11 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="medium-4 columns">
+    <div class="panel">
+      <%= render 'shared/resume_panel', objs: @snippets, title: "Code Snippets" %>
+      <%= link_to "<i class=\"fi-plus\"></i>Add Snippet".html_safe, new_resume_snippet_path(@resume), class: 'button small radius', remote: true %>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  ecnoding: unicode
+  encoding: unicode
   pool: 5
   timeout: 5000
 

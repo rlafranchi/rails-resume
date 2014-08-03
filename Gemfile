@@ -7,7 +7,7 @@ gem 'rails', '4.1.1'
 gem 'sqlite3', group: :development
 
 # heroku required gems
-gem 'pg', group: :production
+gem 'pg'
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets

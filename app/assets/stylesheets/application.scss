@@ -47,6 +47,17 @@ pre {
   overflow-y: hidden;
 }
 
-section {
-  padding-bottom: 5rem;
+#sections section {
+  /*padding-bottom: 5rem;*/
+  min-height: 100vh;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  hr {
+    margin-top: 0;
+  }
 }

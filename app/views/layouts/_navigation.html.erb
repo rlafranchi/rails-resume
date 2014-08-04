@@ -1,61 +1,63 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
-        <h1><%= link_to "Resume - " + @resume.user.first_name + " " + @resume.user.last_name, '' %></h1>
-      <% else %>
-        <h1><%= link_to "Home", root_path %></h1>
-      <% end %>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="right">
-
-      <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
-        <% if @skills.any? %>
-          <li><%= link_to "Skills", '#', class: 'nav-skills' %></li>
+<div class="sticky">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
+          <h1><%= link_to "Resume - " + @resume.user.first_name + " " + @resume.user.last_name, '' %></h1>
+        <% else %>
+          <h1><%= link_to "Home", root_path %></h1>
         <% end %>
-
-        <% if @schools.any? %>
-          <li><%= link_to "Education", '#', class: 'nav-schools' %></li>
-        <% end %>
-
-        <% if @jobs.any? %>
-          <li><%= link_to "Work Experience", '#', class: 'nav-jobs' %></li>
-        <% end %>
-
-        <% if @hobbies.any? %>
-          <li><%= link_to "Hobbies", '#', class: 'nav-hobbies' %></li>
-        <% end %>
-
-        <% if @references.any? %>
-          <li><%= link_to "References", '#', class: 'nav-references' %></li>
-        <% end %>
-
-        <% if @customs.any? %>
-          <% @customs.each do |custom| %>
-            <li><%= link_to custom.title, "#", class: 'nav-custom-' + custom.id.to_s %></li>
-          <% end %>
-        <% end %>
-
-        <% if @snippets.any? %>
-          <li class="has-dropdown"><a href="#">Code Snippets</a><ul class="dropdown">
-          <% @snippets.each do |snippet| %>
-            <li><%= link_to snippet.title, "#", class: 'nav-snippet-' + snippet.id.to_s %></li>
-          <% end %>
-          </ul></li>
-        <% end %>
-      <% end %>
-
-      <% if logged_in? %>
-        <li><%= link_to "Log Out", logout_path %></li>
-        <li class="<%= current_page?(edit_resume_path(current_resume)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
-        <li class="<%= current_page?(edit_user_path(current_user)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
-      <% else %>
-        <li class="<%= current_page?(login_path) ? 'active' : '' %>"><%= link_to "Login", login_path, remote: true %></li>
-        <li class="<%= current_page?(register_path) || ( @user && @user.errors.any? ) ? 'active' : '' %>"><%= link_to "Register", register_path %></li>
-      <% end %>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
-  </section>
-</nav>
+    <section class="top-bar-section">
+      <ul class="right">
+
+        <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
+          <% if @skills.any? %>
+            <li><%= link_to "Skills", '#skills', class: 'nav-skills' %></li>
+          <% end %>
+
+          <% if @schools.any? %>
+            <li><%= link_to "Education", '#schools', class: 'nav-schools' %></li>
+          <% end %>
+
+          <% if @jobs.any? %>
+            <li><%= link_to "Work Experience", '#jobs', class: 'nav-jobs' %></li>
+          <% end %>
+
+          <% if @hobbies.any? %>
+            <li><%= link_to "Hobbies", '#hobbies', class: 'nav-hobbies' %></li>
+          <% end %>
+
+          <% if @references.any? %>
+            <li><%= link_to "References", '#references', class: 'nav-references' %></li>
+          <% end %>
+
+          <% if @customs.any? %>
+            <% @customs.each do |custom| %>
+              <li><%= link_to custom.title, "#custom-" + custom.id.to_s, class: 'nav-custom-' + custom.id.to_s %></li>
+            <% end %>
+          <% end %>
+
+          <% if @snippets.any? %>
+            <li class="has-dropdown"><a href="#">Code Snippets</a><ul class="dropdown">
+            <% @snippets.each do |snippet| %>
+              <li><%= link_to snippet.title, "#snippet-" + snippet.id.to_s, class: 'nav-snippet-' + snippet.id.to_s %></li>
+            <% end %>
+            </ul></li>
+          <% end %>
+        <% end %>
+
+        <% if logged_in? %>
+          <li><%= link_to "Log Out", logout_path %></li>
+          <li class="<%= current_page?(edit_resume_path(current_resume)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
+          <li class="<%= current_page?(edit_user_path(current_user)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
+        <% else %>
+          <li class="<%= current_page?(login_path) ? 'active' : '' %>"><%= link_to "Login", login_path, remote: true %></li>
+          <li class="<%= current_page?(register_path) || ( @user && @user.errors.any? ) ? 'active' : '' %>"><%= link_to "Register", register_path %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

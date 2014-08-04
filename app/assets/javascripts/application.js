@@ -24,4 +24,12 @@ $(document).ready(function () {
     var modal = $(this);
     modal.html('<a class="close-reveal-modal">&#215;</a>');
   });
+  $('a').click(function() {
+    var elementClicked = $(this).attr("href");
+    $('.top-bar').find('.active').removeClass('active');
+    $(this).parent('li').addClass('active');
+    var destination = $(elementClicked).offset().top;
+    $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-60}, 500 );
+    return false;
+  });
 });

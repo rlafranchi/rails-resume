@@ -15,28 +15,28 @@
 
         <% if @resume && !@resume.new_record? && current_page?( resume_path(@resume) ) %>
           <% if @skills.any? %>
-            <li><%= link_to "Skills", '#skills', class: 'nav-skills' %></li>
+            <li id="skills-link"><%= link_to "Skills", '#skills', class: 'nav-skills' %></li>
           <% end %>
 
           <% if @schools.any? %>
-            <li><%= link_to "Education", '#schools', class: 'nav-schools' %></li>
+            <li id="schools-link"><%= link_to "Education", '#schools', class: 'nav-schools' %></li>
           <% end %>
 
           <% if @jobs.any? %>
-            <li><%= link_to "Work Experience", '#jobs', class: 'nav-jobs' %></li>
+            <li id="jobs-link"><%= link_to "Work Experience", '#jobs', class: 'nav-jobs' %></li>
           <% end %>
 
           <% if @hobbies.any? %>
-            <li><%= link_to "Hobbies", '#hobbies', class: 'nav-hobbies' %></li>
+            <li id="hobbies-link"><%= link_to "Hobbies", '#hobbies', class: 'nav-hobbies' %></li>
           <% end %>
 
           <% if @references.any? %>
-            <li><%= link_to "References", '#references', class: 'nav-references' %></li>
+            <li id="references-link"><%= link_to "References", '#references', class: 'nav-references' %></li>
           <% end %>
 
           <% if @customs.any? %>
             <% @customs.each do |custom| %>
-              <li><%= link_to custom.title, "#custom-" + custom.id.to_s, class: 'nav-custom-' + custom.id.to_s %></li>
+              <li id="custom-<%= custom.id.to_s %>-link"><%= link_to custom.title, "#custom-" + custom.id.to_s, class: 'nav-custom-' + custom.id.to_s %></li>
             <% end %>
           <% end %>
 
@@ -44,7 +44,7 @@
             <li class="has-dropdown"><a href="#">Code Snippets</a>
               <ul class="dropdown">
               <% @snippets.each do |snippet| %>
-                <li><%= link_to snippet.title, "#snippet-" + snippet.id.to_s, class: 'nav-snippet-' + snippet.id.to_s %></li>
+                <li id="snippet-<%= snippet.id.to_s %>-link"><%= link_to snippet.title, "#snippet-" + snippet.id.to_s, class: 'nav-snippet-' + snippet.id.to_s %></li>
               <% end %>
               </ul>
             </li>

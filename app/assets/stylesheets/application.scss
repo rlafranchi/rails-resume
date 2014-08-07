@@ -47,8 +47,17 @@ pre {
   overflow-y: hidden;
 }
 
+@media #{$medium-up} {
+  #sections section {
+    /*padding-bottom: 5rem;*/
+    /* min-height: 700px; */
+  }
+}
 #sections section {
-  /*padding-bottom: 5rem;*/
+  padding-top: 65px;
+}
+
+#sections:last-child {
   min-height: 100vh;
 }
 
@@ -60,4 +69,8 @@ footer {
   hr {
     margin-top: 0;
   }
+}
+
+main.row {
+  margin-bottom: 100px;
 }

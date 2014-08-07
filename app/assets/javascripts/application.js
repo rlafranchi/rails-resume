@@ -19,12 +19,38 @@
 jQuery(document).foundation();
 
 $(document).ready(function () {
+  var footerht = $('footer').height();
+  var headerht = $('header').height();
+  var winheight = $(window).height();
+  var minheight = winheight - footerht - headerht;
+
+  $('#sections section').each( function() {
+    $(this).css({ 'min-height' : minheight + 'px' })
+  });
   $('a').click(function() {
     var elementClicked = $(this).attr("href");
     $('.top-bar').find('.active').removeClass('active');
     $(this).parent('li').addClass('active');
     var destination = $(elementClicked).offset().top;
-    $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-60}, 500 );
+    $("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination+10}, 500 );
     return false;
+  });
+
+  $('main section').waypoint( function(direction) {
+    var $active = $(this);
+
+    /* The waypoint is triggered at the top of each list item representing a dial section. When triggering in the down direction we want to use the dial section the waypoint is attached to. But in the up direction we want to use the previous dial section. */
+    if (direction === "up") {
+      $active = $active.prev();
+    }
+
+    /* If we triggered in the up direction and the result from 'prev' came back with an empty set of elements, it means we were on the first element in the list, and we should just use the original element. */
+    if (!$active.length) {
+      $active = $(this);
+    }
+    var id = $active.attr('id');
+    $('.top-bar').find('.active').removeClass('active');
+    $('.top-bar').find("#" + id + "-link").addClass('active');
+
   });
 });

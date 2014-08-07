@@ -4,7 +4,7 @@ class ResumesController < ApplicationController
     before_action :require_resume, except: [:index, :show]
 
   def index
-    @resumes = Resume.all
+    @resumes = Resume.order(created_at: :desc)
     @new_resume = Resume.new
   end
 

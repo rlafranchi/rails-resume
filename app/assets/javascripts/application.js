@@ -17,7 +17,7 @@
 //= require_tree .
 
 jQuery(document).foundation();
-
+hljs.initHighlightingOnLoad();
 $(document).ready(function () {
   var footerht = $('footer').height();
   var headerht = $('header').height();

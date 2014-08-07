@@ -41,11 +41,13 @@
           <% end %>
 
           <% if @snippets.any? %>
-            <li class="has-dropdown"><a href="#">Code Snippets</a><ul class="dropdown">
-            <% @snippets.each do |snippet| %>
-              <li><%= link_to snippet.title, "#snippet-" + snippet.id.to_s, class: 'nav-snippet-' + snippet.id.to_s %></li>
-            <% end %>
-            </ul></li>
+            <li class="has-dropdown"><a href="#">Code Snippets</a>
+              <ul class="dropdown">
+              <% @snippets.each do |snippet| %>
+                <li><%= link_to snippet.title, "#snippet-" + snippet.id.to_s, class: 'nav-snippet-' + snippet.id.to_s %></li>
+              <% end %>
+              </ul>
+            </li>
           <% end %>
         <% end %>
 
@@ -53,7 +55,7 @@
           <li><%= link_to "Log Out", logout_path %></li>
           <li class="<%= current_page?(edit_resume_path(current_resume)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-list\"></i> Dashboard".html_safe, edit_resume_path(current_resume) %>
           <li class="<%= current_page?(edit_user_path(current_user)) ? 'active' : '' %>"><%= link_to "<i class=\"fi-torso\"></i> Profile".html_safe, edit_user_path(current_user) %>
-        <% else %>
+        <% elsif current_page?(login_path) || current_page?(register_path) || current_page?(resumes_path) || current_page?(root_path) %>
           <li class="<%= current_page?(login_path) ? 'active' : '' %>"><%= link_to "Login", login_path, remote: true %></li>
           <li class="<%= current_page?(register_path) || ( @user && @user.errors.any? ) ? 'active' : '' %>"><%= link_to "Register", register_path %></li>
         <% end %>

@@ -118,7 +118,7 @@
         <h3><%= snippet.title %></h3>
         <hr />
         <p><%= snippet.description %></p>
-        <pre><code><%= snippet.code %></code></pre>
+        <pre><code <%= snippet_lang(snippet).html_safe %>><%= snippet.code %></code></pre>
       </section>
     <% end %>
   </div>

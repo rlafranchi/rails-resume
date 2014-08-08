@@ -7,6 +7,11 @@
     <%= f.text_field :title %>
     <%= f.label :description %>
     <%= f.text_area :description %>
+    <%= f.label :programming_language %>
+    <%= f.select( :programming_language,
+      [['--Autodetect--', 'autodetect'],['Ruby','ruby'],['Bash', 'bash'],
+      ['HTML', 'html'], ['Javascript','javascript'],['PHP','php'],['SCSS','scss']]
+    ) %>
     <%= f.label :code %>
     <%= f.text_area :code %>
     <%= f.submit create_or_update(@snippet), class: 'button small radius' %>

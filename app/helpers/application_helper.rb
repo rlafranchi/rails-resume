@@ -1,4 +1,11 @@
 module ApplicationHelper
+  def snippet_lang(obj)
+    if obj.programming_language.empty? || obj.programming_language == 'autodetect'
+      ''
+    else
+      "class='" + obj.programming_language + "'"
+    end
+  end
   def obj_title(obj)
     if obj.respond_to? :title
       obj.title

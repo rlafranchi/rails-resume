@@ -43,6 +43,7 @@ $(document).ready(function () {
     var id = $active.attr('id');
     $('.top-bar').find('.active').removeClass('active');
     $('.top-bar').find("#" + id + "-link").addClass('active');
+    $('.top-bar').find("#" + id + "-link").parents('.has-dropdown').addClass('active');
 
   });
 });

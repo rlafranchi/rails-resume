@@ -19,14 +19,6 @@
 jQuery(document).foundation();
 hljs.initHighlightingOnLoad();
 $(document).ready(function () {
-  var footerht = $('footer').height();
-  var headerht = $('header').height();
-  var winheight = $(window).height();
-  var minheight = winheight - footerht - headerht;
-
-  $('#sections section').each( function() {
-    $(this).css({ 'min-height' : minheight + 'px' })
-  });
   $('a').click(function() {
     var elementClicked = $(this).attr("href");
     $('.top-bar').find('.active').removeClass('active');

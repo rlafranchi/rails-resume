@@ -56,11 +56,9 @@ pre {
 }
 #sections section {
   padding-top: 65px;
+  padding-bottom: 65px;
 }
 
-#sections:last-child {
-  min-height: 100vh;
-}
 
 footer {
   position: fixed;

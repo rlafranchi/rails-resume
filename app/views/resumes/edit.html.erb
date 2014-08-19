@@ -21,41 +21,41 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" data-equalizer>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @skills, title: "Skills" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add Skill".html_safe, new_resume_skill_path(@resume), class: 'button small radius', remote: true %>
     </div>
   </div>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @schools, title: "Education" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add School".html_safe, new_resume_school_path(@resume), class: 'button small radius', remote: true %>
     </div>
   </div>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @jobs, title: "Work Experience" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add Job".html_safe, new_resume_experience_path(@resume), class: 'button small radius' %>
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row" data-equalizer>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @hobbies, title: "Hobbies" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add Hobby".html_safe, new_resume_hobby_path(@resume), class: 'button small radius', remote: true %>
     </div>
   </div>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @references, title: "References" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add Reference".html_safe, new_resume_reference_path(@resume), class: 'button small radius', remote: true %>
     </div>
   </div>
   <div class="medium-4 columns">
-    <div class="panel">
+    <div class="panel" data-equalizer-watch>
       <%= render 'shared/resume_panel', objs: @customs, title: "Custom" %>
       <%= link_to "<i class=\"fi-plus\"></i>Add Custom".html_safe, new_resume_custom_path(@resume), class: 'button small radius', remote: true %>
     </div>
